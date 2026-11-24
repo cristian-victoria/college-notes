@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.25in, right = 1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\setlength{\droptitle}{-5em}   
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\begin{document}
+% =-=-= Cover Page Start =-=-=
+% \input{Upper Division/Front Page}
+% =-=-= Cover Page End =-=-=
+
+% =-=-= Question 1 Start =-=-=
+\section{Pony Express}
+
+After getting his first internship at USPS, Renegade came into office from lunch break one day to find out that the postal carriers decided to have a water balloon fight in every server room breaking each rack. In a scramble to keep their jobs, the devs worked to rewrite the back-end. Renegade was told to ensure the validity of 22-digit tracking numbers. Unfortunately, he sprained his foot in his fountain toss and needs your help implementing the validation.  \\
+\\
+The indices of the digits in the code are 1-based, with 22 being the left-most digit and 1 being the right-most. The check-sum digit is in position 1. The check digit must follow a general rule to be valid. The check digit is the smallest number which, when added to sum of the odd-digits (not-including the check-digit) times three plus the sum of even-digits, gives a number that is a multiple of 10. Note that an ID only contains positive numbers.
+
+
+
+\subsection{Input}
+
+The input consists of an arbitrary number of lines, each containing a 22-Digit tracking number.
+
+\subsection{Output}
+
+Each line of the output should contain the validity of a tracking number in the form of true/false.
+
+\subsection{Sample Input/Output}
+
+% 6780726047469215599210
+% 2302318695420634188792
+
+\begin{center}
+	\begin{tabular}{ |l|l| }
+		\hline
+		\textbf{Sample Input} & \textbf{Sample Output} \\
+	   	\hline
+		6780726047469215599210 & true\\
+		2302318695420634188792 & false\\
+        ... & ...\\
+        4638852541045574473209 & true\\
+        \hline
+	\end{tabular}
+\end{center}
+% =-=-= Question 1 End =-=-=
+
+\end{document}

@@ -1,0 +1,33 @@
+Part 2
+
+Why did I choose the encoding method I did = 
+
+I chose ordinal encoding because all the features are of type ordinal. All of them have an aspect that is either "more" (i.e., persons and doors) or "better" (i.e., buying, maintenance, safety, and lug_boot).
+While One-Hot Encoding is a "safe default", using Ordinal Encoding on this dataset can lead to better performance since it preserves the ordinality of the data. 
+
+Brief explanation of the preprocessing process = 
+
+I first identified which columns are inputs (features) and then used that list to create a data frame X.
+Ordinal Encoding was used to ensure that the categories are mapped to numbers in an order. For example, "low" = 0, "medium" = 1, "high" = 2. This was implemented by explicitly ranking each order for each feature. 
+The feature list was then passed into the encoder to be transformed into a Numpy Array which was then converted into a pandas data frame and finally returned.
+
+Part 3 - Brief explanation of applying PCA
+
+I first scaled the data using MinMaxScaler instead of StandardScaler because it broke the symmetry a little, unlike StandardScalar() which had it such that the 6 components shared equal EVR.
+I then calculated the explained variance ratio (EVR) and the cumulative EVR for the 6 components. I discovered that, in the case of MinMaxScaler(), the first 3 components held the same EVR (18.18%) while the
+last three shared the same but lesser EVR (15.15%). 
+This near symmetry (and perfect symmetry using StandardScaler()) signifies that the data is near balanced in structure. 
+The first 3 components together capture 54.55% of total variance. 
+They were selected because, despite barely capturing over 50%, these 3 points are the best choices among all possibel groupings of 3. 
+The fact that all EVR drops from 18.18 to 15.15 after PC3 demonstrates a clear breakpoint. 
+
+Part 8 - Interpretation and Reflection
+
+The first three PCA collectively captured 54.55% with each component individually explaining 18.18%. This is a structural property of the UCI
+data set because it contains every possible feature combination in equal proportion, making all six features almost fully independent from one another. 
+Because of the aforementioned symettrical property of the UCI dataset, the PCA projection did not produce clear clusters. 
+The data points tend to form overlapping bands rather than distinct groupings. 
+I evaluated K = 4 to be the best from the elbow method. Beyond k=4, the marginal reduction in inertia lowered noticeably. 
+It was not easy to interpret in terms of the original car attributes. 
+The first limitation would be that k-means assumes features are continuous, which does not hold for categorical data. There is also the significant difference the type 
+of encoding could make. K-means also assumes clusters are roughly spherical in size, which may not match the true structure of a categorical data set. 

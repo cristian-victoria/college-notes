@@ -1,0 +1,8 @@
+CRITICAL:
+1%: Daniel Foster, Distance: 29m
+17%: Harper Wilson, Distance: 11m
+17%: Lucas Montana, Distance: 34m
+
+NON-CRITICAL:
+54%: Mia Sullivan, Distance: 6m
+54%: Benjamin Ortiz, Distance: 47m

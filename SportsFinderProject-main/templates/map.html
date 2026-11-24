@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map View</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; width: 100%; margin-bottom: 20px; }
+        button { margin: 5px; padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Interactive Sports Field Map</h1>
+    <div id="map"></div>
+
+    <button id="btn-soccer">Soccer</button>
+    <button id="btn-basketball">Basketball</button>
+    <button id="btn-football">Football</button>
+    <button id="btn-all">Show All</button>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([30.4382, -84.2806], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        let markers = [];
+
+        function loadMarkers(filter = null) {
+            fetch('/api/locations')
+                .then(response => response.json())
+                .then(data => {
+                    markers.forEach(marker => map.removeLayer(marker));
+                    markers = [];
+
+                    data.forEach(loc => {
+                        if (!filter || loc.type === filter) {
+                            const marker = L.marker(loc.coords)
+                                .addTo(map)
+                                .bindPopup(`<b>${loc.name}</b><br>Sport: ${loc.type}`);
+                            markers.push(marker);
+                        }
+                    });
+                });
+        }
+
+        loadMarkers();
+        document.getElementById('btn-soccer').onclick = () => loadMarkers("soccer");
+        document.getElementById('btn-basketball').onclick = () => loadMarkers("basketball");
+        document.getElementById('btn-football').onclick = () => loadMarkers("football");
+        document.getElementById('btn-all').onclick = () => loadMarkers();
+    </script>
+
+    <a href="/">Go back to home page</a><br>
+
+</body>
+</html>

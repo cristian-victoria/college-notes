@@ -1,0 +1,4 @@
+ 	sw      0       1       6       St R1 -> M[6]
+	lw      0       1       23      Ld R1 <- M[23]
+	lw      0       1       30      Ld R1 <- M[30]
+	halt

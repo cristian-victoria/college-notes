@@ -1,0 +1,26 @@
+#| Cristian Victoria 
+cjv22c |#
+
+(defparameter fib_array (list 0 1)) ; fib_array = (0 1)
+(defun fib(N) ; define function
+    (cond 
+        ((null N) nil) ; if N is null, return NIL
+        ((< N 0) nil) ; if N < 0, return NIL
+        ((< N (length fib_array)) (nth N fib_array)) ; if N < len(fib_array), return fib_array
+        #| else, result = fib(N-1) + fib(N-2)
+        fib_array.append(result)
+        return fib_array(N)
+        |#
+        (t 
+            (let 
+                ((result (+ (fib(- N 1)) (fib (- N 2)))))
+                (setf fib_array (append fib_array (list result)))
+                (nth N fib_array)
+            )
+        )
+    )
+)
+
+#| Answer to question: Increasing N will ultimately reach a point where you get the error message "Lisp stack overflow."
+This is because the multople number of recursion calls requires more stack frames than the available stack space, causing the program to crash.
+|#

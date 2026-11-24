@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.25in, right = 1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\setlength{\droptitle}{-5em}   
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+% =-=-= COP3330-Hard Start =-=-=
+\section{Disaster at the Space Station}
+
+Oh no! You are currently aboard the International Space Station when a meteor strikes, causing severe damage to the exterior and scattering the crew throughout the station. You manage to reach the control center, but several crew members are now missing.
+
+With oxygen levels rapidly decreasing, time is critical. Each missing crew member has a recorded oxygen level percentage and a distance from the control center. 
+To maximize survival, you must determine the order in which to rescue the crew members.
+
+To assist in this emergency, you are tasked with writing a program that organizes and reports the missing crew members based on rescue priority.
+
+\subsection{Input}
+
+The input consists of a single integer $N$ that represents the number of astronauts on board followed by $N$ lines. 
+\newline \newline Each line holds astronaut information and is as follows:
+\begin{itemize}
+    \item A string $S$, the astronaut's name
+    \item An integer $K$, the astronaut's oxygen level
+    \item An integer $D$, the distance from main cabin
+\end{itemize}
+
+\subsection{Output}
+
+Print two sections - Critical and Non-Critical. Based on their oxygen level, print out the corresponding astronauts. Critical levels are anything below 30\%. If a tie in oxygen level, compare their distances.
+
+\subsection{Sample Input/Output}
+
+\begin{center}
+\begin{tabular}{ |l|p{7cm}| }
+\hline
+\textbf{Sample Input} & \textbf{Sample Output} \\
+\hline
+\begin{tabular}[t]{@{}l@{}}
+5 \\
+Toni Terrier, 85, 10 \\
+Sebastian Mays, 30, 32 \\
+Cameron Stiles, 9, 44 \\
+Mike Geller, 92, 3 \\
+Laney Jackson, 30, 15
+\end{tabular}
+&
+\begin{tabular}[t]{@{}l@{}}
+\textbf{CRITICAL:} \\
+9\%: Cameron Stiles, Distance: 44m \\
+30\%: Laney Jackson, Distance: 15m \\
+30\%: Sebastian Mays, Distance: 32m \\
+\\
+\textbf{NON-CRITICAL:} \\
+85\%: Toni Terrier, Distance: 10m \\
+92\%: Mike Geller, Distance: 3m
+\end{tabular}
+\\
+\hline
+\end{tabular}
+\end{center}
+% =-=-= Question 2 End =-=-=
+
+\end{document}

@@ -1,0 +1,59 @@
+	1. 
+	a)
+	line 1: 15
+	line 2: 15
+	line 3: 55
+	
+	b)
+	Because b is string and you cannot add a string and an int together
+	
+	2. 
+	a)
+	list_b after append: [1, 2, 3, 4]
+	list_a after concat: [1, 2, 3, 4, 5]
+	list_b after concat: [1, 2, 3, 4]
+
+	b)
+	Append adds elements to the end, while concat creates an entirely new object. 
+	
+	3. 
+	a)
+	C++ is compiled, meaning that the source code is translated into machine code by the compiler before the program is called. Python is interpreted, meaning its code is executed line-by-line at runtime by the interpreter. 
+	
+	b)
+	Interpreted languages require runtime type checking and memory management, but are flexible as they allow rapid development and intuitive syntaxing. 
+	
+	c)
+	Bytecode serves as a low-level representation of source code that the Python VM executes instruction by instruction
+	
+	4. 
+	a)
+	x: 20y: 10
+	Flag1:True
+	Flag2:True
+	
+	B)
+	The expressions in the right hand side are evaluated and collected into an intermediate sequence and then assigned to the variables on the left hand side. 
+
+	5. 
+	import random
+	... def flip_coin():
+	...     outcomes = ['Heads', 'Tails']
+	...     weights = [65, 35]
+	...     result = random.choices(outcomes, weights, k=1)[0]
+	...     return result
+	...     
+	... print(f"The coin landed on: {flip_coin()}")
+	
+	6. 
+	def fib_sum(n):
+	...       sum = 0
+	...       prev, current = 1, 2
+	...       itr = 2;
+	...       while itr<=n:
+	...             if current % 2==0:
+	...                 sum += current
+	...             prev, current = current, current + prev
+	...             itr += 1
+	...       return sum
+	

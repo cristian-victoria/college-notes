@@ -1,0 +1,44 @@
+Part 6 - Interpret the Dendrogram
+
+Which taxa are similar?
+
+The Dendogram truncated because the number of taxa inside is too large, and thus were condensed and grouped into nodes with a number that represents the number of taxa inside that collapse subtree. 
+So while we cannot see which specific taxa was similar in the green cluster, we know that in the red these were Mitholestes, Iguandon, Ronychodon, Ardiestesia, and Tetanurae. 
+
+The Green cluster contains the bulk of the taxa and represents the most internally similar group. 
+
+Do clusters share time ranges?
+
+This is not clear by mere looking at the Dendogram. 
+
+Do clusters share geographic patterns?
+
+This is also not clear by mere looking at the Dendogram.
+
+Do outliers exist?
+
+There is one clear outlier, and that is Grallalator on the far left, in its very own cluster far away from the other two (green and red)/
+
+Part 7 - Scientific Limitations
+
+Incomplete fossil record = 
+
+This can impact how we understand the true biology of a genus, undermining the reliability of any clustering based on missing feature data. 
+
+Sampling bias = 
+
+The dataset reflects where paleontologists have looked, which can be biased as this is not random. This means that two genera could be clustered together based on the amount of research put rather than on geographic information.
+
+Inconsistent taxonomy = 
+
+Because the taxonomy has changed substantially, a genus name today may represent what was previously split itno two 
+or three separate taxa, or conversely, what was previously 2 or 3 names turned into one. This can have an impact in accepted_name field. 
+
+Clustering vs phylogeny = 
+
+Clustering is not the same as a phylogenetic tree. Two taxa that cluster together because they share temporal range or geographic distribution may be completely unrelated on the actual evolutionary tree of life. 
+
+Effect of chosen features = 
+
+Clustering is entirely contingent on which features were included, and mine emphasized temporal range, sampling intensity, and geographic spread. Had we used other features, 
+our clusters would have looked different. 

@@ -1,0 +1,64 @@
+Part 2 - Why did I pick label encoding? 
+
+Because KNN computes distances between points, Label encoding keeps dimensionality low and managable by keeping one column per feature. 
+
+Part 6 - Discuss
+
+Common mistakes = 
+
+Not accounting for class imbalance by using primarily accuracy instead of f1 scores, and forgetting to scale before KNN which could have had some features dominate the distance calculation entirely. 
+
+Bias toward one class = 
+
+Final Model Evaluation was as follows:
+Accuracy: 0.8322
+Precision: 0.7013
+Recall: 0.5922
+F1 Score: 0.6421
+
+And the confusion matrix:
+
+True Negatives (TN) = 6,165
+False Positives (FP)= 580
+False Negatives (FN) = 938
+True Positives (TP) = 1,362
+Total test samples = 9,045
+        
+We can see that the model was biased toward the majority class (<=50K class) because the gap between precision (0.7) and recall (0.59) confirms the model
+was more conservative when predicting the minority class (>50K)
+
+Suitability of KNN = 
+
+The dataset was manageable. It mixed continuous data with label-encodded features. The former is fine but the latter isn't treated meaningfully since it is treated as numeric.
+The biggest limitation was in the class imbalance, and because of this the majority class neighbors will always win in close decisions, as mentioned prior. 
+
+Part 8 - Written Analysis
+
+Preprocessing Decisions = 
+
+As aforementioned, label encoding was chosen. 
+Invalid entries were given by ? which were replaced with NaN and dropped.
+
+Effect of Scaling = 
+
+Standard Scaler was applied to all features, ensuring that every feature contributed equally to neighbor distances.
+
+Best k = 
+
+The best k was 7. This was selected based on the highest F1 score across all k values. 
+F1 was selected to mitigate the impact of class imbalance which was present in the dataset. 
+
+Strengths of KNN = 
+
+KNN is simple to implement once you understand the concepts and how to use the libraries. 
+It is also non-parametric in that it makes no assumptios about the underlying data distribution.
+
+Weaknesses of KNN = 
+
+However, KNN can be sensitive to redundant features as well as class imbalance. It also does not give context
+on why the prediction was made. 
+
+Challenges in dataset = 
+
+There were multitude invalid entries. There was also a staggering class imbalance. There were also mixed feature types (6 numeric and 8 categorical), which needed to be accounted
+for during preprocessing. 

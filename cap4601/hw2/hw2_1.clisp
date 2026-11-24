@@ -1,0 +1,16 @@
+#| Cristian Victoria 
+cjv22c |#
+
+#|
+Depth-first search explores as far as possible each branch before backtracking
+|#
+
+(defun dfs-list (tree)
+    (cond
+        ((null tree) nil) ; if node is null, return nil
+        ((listp tree) ; if node is a list...
+            (mapcan #'dfs-list tree) ; mapcan calls dfs-list on each list node to concatenate all of it = dfs every node inside it
+        )
+        ((atom tree) (list tree)) ; if it is an atom, return it as a list
+    )
+)                      

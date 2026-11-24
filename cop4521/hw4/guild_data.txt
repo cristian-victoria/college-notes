@@ -1,0 +1,25 @@
+adventurer,Thorin,Warrior,10,50
+adventurer,Elara,Mage,5,100
+adventurer,Rogue One,Thief,2,10
+adventurer,Gandalf,Wizard,99,0
+adventurer,Legolas,Ranger,15,200
+adventurer,Gimli,Warrior,14,150
+adventurer,Arwen,Healer,20,300
+adventurer,Bilbo,Thief,8,500
+adventurer,Boromir,Warrior,12,80
+adventurer,Galadriel,Mage,100,1000
+adventurer,Frodo,Ringbearer,3,5
+adventurer,Samwise,Gardener,3,10
+adventurer,Aragorn,Ranger,25,50
+adventurer,Eowyn,Shieldmaiden,11,90
+adventurer,Faramir,Ranger,13,120
+quest,Slay the Rat King,1,10
+quest,Retrieve the Lost Amulet,5,500
+quest,Defeat the Dragon,10,5000
+quest,Escort the Merchant,2,50
+quest,Find the Missing Cat,1,5
+quest,Clear the Goblin Cave,4,100
+quest,Hunt the Dire Wolf,6,250
+quest,Protect the Village,7,400
+quest,Explore the Ancient Ruins,8,600
+quest,Banish the Necromancer,15,2000

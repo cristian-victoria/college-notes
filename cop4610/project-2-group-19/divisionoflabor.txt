@@ -1,0 +1,23 @@
+Operating Systems
+Team Members:
+1. Cristian Victoria
+2. Kwaku Ababio 
+3. Jordan Bradley
+
+
+Part 1: System Call Tracing
+Cristian Victoria
+Part 2: Timer Kernel Module
+Cristian Victoria
+Part 3a: Adding System Calls
+Jordan Bradley
+Part 3b: Kernel Compilation
+Jordan Bradley
+Part 3c: Threads
+Jordan Bradley
+Part 3d: Linked List
+Kwaku Ababio 
+Part 3e: Mutexes
+Kwaku Ababio 
+Part 3f: Scheduling Algorithm
+Kwaku Ababio 

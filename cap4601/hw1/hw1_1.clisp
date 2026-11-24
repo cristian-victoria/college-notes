@@ -1,0 +1,21 @@
+#| Cristian Victoria 
+cjv22c |#
+
+(defun dmax(x) ;define function
+    (cond
+        ((null x) nil) ; if x is empty, return NIL
+        ((atom x) x) ; if x is single int, return it
+        #| else, define car-max as recursive function on first element (car) 
+            and cdr-max as recursive function on second element (cdr) |#
+        (t 
+            (let ((car-max (dmax (car x)))(cdr-max (dmax (cdr x))))
+            (cond 
+                ((null car-max) cdr-max) ; if car-max is empty, return cdr-max
+                ((null cdr-max) car-max) ; if cdr-max is empty, return car-max
+                ((> car-max cdr-max) car-max) ; if car-max > cdr-max, return car max
+                (t cdr-max) ; else, return cdr-max
+            )
+            )
+        )
+    )
+)

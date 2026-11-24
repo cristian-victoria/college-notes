@@ -1,0 +1,10 @@
+var thisWidth = jwplayer('media-player').getWidth();
+var thisHeight = jwplayer('media-player').getHeight();
+
+var suck = jwplayer('media-player').getPlaylist()[0].allSources;
+jwplayer('media-player').setup({
+    "playlist":[{"sources": suck, "tracks":
+    [{"file":"https://gist.githubusercontent.com/SuperCJV/6fcd081ee4ffedb2dcfcd25e59d15d61/raw/ca2a5a6dcc8b152a295e21ef111c1925f342dfc7/2001.A.Space.Odyssey.(1968).BDRip.AC3.X264-TLF-English.srt", "label":"English", "kind": "captions", "default": true}]}],
+    "width": thisWidth,
+    "height": thisHeight
+});

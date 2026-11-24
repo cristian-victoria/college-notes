@@ -1,0 +1,43 @@
+As per my analysis, the top 3 linked pages that were most similar to the Chicken page were:
+rank    title               doc_id  cosine_similarity
+1       Laying_hen          18      0.5030
+2       Chicken_as_food     1       0.4558
+3       Red_junglefowl      9       0.3655
+
+These 3 documents are topically close to Chicekn but for different reasons.
+
+"Laying_hen" is actually not a single page but rather a heading in the page "Poultry Farming". 
+This has a definite impact on the cosine similarity because the number of tokens is far fewer than 
+that of a full article. This means there are less unique terms and lower frequency terms in 
+"Laying Hen" than in any other link, making it so there are fewer terms available to match 
+against another document. This would in turn make the overlap of words such as "hen" and "egg"
+to look very strong. The TF-IDF in this case is less representative of its true topic and the cosine
+similarity is potentially misleading. 
+
+Next is "Chicken_as_food" which is similar to Chicken because they share the same vocabulary 
+such as "meat", "breed", or "egg". 
+
+Red_junglefowl was the next most similar to Chicken and this is because it is the page dedicated to 
+the direct wild ancestor of the domesticated chicken and therfore shares the same biological vocabulary 
+like "species", "breed", and "feather".
+
+Surprisingly, lemmatization did not have a noticeable impact on my results. The heatmap remained moderately 
+the same except that the colors seemed less bright, meaning that the similarities shifted slightly but the 
+distribution remained the same. This could be because lemmatization may not have much of an impact on high-weight
+distinctive terms that affect the similarity rankings the most. It may only have an impact on terms that 
+can merge to the same root but have different meaning, making two documents appear slightly more similar than 
+what they actually are. But these terms make the minority and thus do not have a big weight on the similarity rankings. 
+
+There were many challenges I faced when scraping and cleaning the text. The first was accessing the webpage. I did not
+know that I needed to implement headers in order to surpass the flag that Wikipedia has. It was also a learning curve to 
+learn how to use soup in order to clean the html files such that I would only get the plain text and not the meta data. 
+It took me a while and a little help from GenAI tools to be able to implement a noise selector list that would take care of
+those labels. After that it was figuring out how to store all the information like the title, doc_id, and text, which was made 
+possible by the use of a dict inside a list, and idea which I took me quite a bit to figure out but once having done so, allowed 
+me to implement the rest of the program with much greater ease. The biggest challenge of it all was keeping up with the scalability 
+of the project. As I went from part 1 to part 2, I needed to change my initial implementation in order to keep track of the necessary 
+information that was needed for the next part, and the one after. Going through each part meant having to go back and seeing what I needed
+to store from the last parts and making sure I made it possible. It also meant re-organizing my entire code. In the beginning, all of my code
+lied solely in main. After every iteration, it made me rethink how I could structure my code in order for it to be (a) more readable, (b) more
+understandable, and (c) more efficient to both implement and process. At the very end, I produced a script which I believe to be very
+organized and well structured with the necessary documentation to explain every step of the process. 

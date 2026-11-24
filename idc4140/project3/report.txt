@@ -1,0 +1,179 @@
+﻿Cristian Victoria
+Professor Jayaraman
+Introduction to Data Science - Project 3
+Due: 21 April 2026
+[Introduction]
+        This project utilizes Machine Learning techniques to classify dermoscopic skin lesion images using the DermaMNIST dataset. This dataset is a standardized benchmark containing 7 diagnostic categories. I utilize two classification approaches: a Logistic Regression model, which treats each flattened image as a feature vector, and a Neural Network, which learns non-linear representations through multiple layers of transformations. Both models are evaluated on validation and test sets using accuracy and per-class F1 score. The goal of this report is to assess the trade-offs between model simplicity and performance in the context of multi-class biomedical image classification. 
+
+
+[Dataset description]
+Are classes balanced? No. The classes are not balanced. In fact, it seems that they are heavily imbalanced. The following is a table of all the 3 splits: 
+Class
+	Train
+	Val
+	Test
+	actinic keratoses
+	228
+	33
+	66
+	basal cell carcinoma
+	359
+	52
+	103
+	benign keratosis-like lesions
+	769
+	110
+	220
+	dermatofibroma
+	80
+	12
+	23
+	melanoma
+	779
+	111
+	223
+	melanocytic nevi
+	4,693
+	671
+	1,341
+	vascular lesions
+	99
+	14
+	29
+	        
+From the table above, we can see that the class “melanocytic nevi” dominates the training set with 4,693 samples. This factor is the same in the validation and test sets where this class remains the dominant one by a large margin. 
+Why does class imbalance matter? Because a model that is trained on imbalance data is biased toward predicting the majority class, in this case  “melanocytic nevi”. This inflates the overall accuracy while performing poorly on minority classes. 
+What preprocessing is required for each model? For the Logistic Regression Model, normalisation, flattening to 1D vector, and batching via DataLoader are required. This is also true for Neural Networks, but it needs one more additional step which is the conversion from images to tensor. This is the case because it keeps data as PyTorch tensors. 
+
+
+[Logistic Regression results]
+Why is Logistic Regression a linear model? Because it makes predictions by computing the weighted sum of the input features, which is a linear operation. The computation is as follows: z=Wx+b; where W is a weight matrix, x the flattened image vector, and b a bias term. The activation function is applied after, but the linearity remains. 
+What are its limitations for image data? When applied to images, Logistic Regression is limited because it has no spatial awareness. By flattening each image into a 1D vector, the model doesn’t gain a capacity to understand how neighboring pixels are related to each other. It also cannot learn complex patterns. Since it is a linear model, it cannot capture non-linearity. 
+Is the performance adequate? My python script outputted the following metrics:
+               precision    recall  f1-score   support
+
+
+           0       0.50      0.12      0.20        66
+           1       0.45      0.46      0.45       103
+           2       0.47      0.32      0.38       220
+           3       0.00      0.00      0.00        23
+           4       0.29      0.11      0.16       223
+           5       0.76      0.93      0.84      1341
+           6       0.68      0.45      0.54        29
+
+
+    accuracy                           0.70      2005
+   macro avg       0.45      0.34      0.37      2005
+weighted avg       0.64      0.70      0.66      2005
+
+
+The overall test accuracy was 70%. It seems adequate, but the Macro average F1-score is just 0.36. This reveals a high accuracy that is almost entirely driven by the model correctly predicting class 8, "melanocytic nevi”, the majority class. This contrasts how the model predicted class 3, “dermatofibroma”, with a 0% precision rate. This class also happens to be the minority class, which demonstrates the flaws of having imbalanced datasets which I discussed earlier in the report. 
+
+
+[Neural Network results]
+The results were as follows:
+
+Class
+	Precision
+	Recall
+	F1-Score
+	Support
+	Actinic keratoses & intraepithelial carcinoma
+	0.32
+	0.42
+	0.37
+	66
+	Basal cell carcinoma
+	0.42
+	0.51
+	0.46
+	103
+	Benign keratosis-like lesions
+	0.47
+	0.30
+	0.37
+	220
+	Dermatofibroma
+	0.50
+	0.04
+	0.08
+	23
+	Melanoma
+	0.44
+	0.17
+	0.24
+	223
+	Melanocytic nevi
+	0.81
+	0.92
+	0.86
+	1341
+	Vascular lesions
+	0.44
+	0.59
+	0.50
+	29
+	Accuracy
+	
+
+	
+
+	0.71
+	2005
+	Macro Avg
+	0.48
+	0.42
+	0.41
+	2005
+	Weighted Avg
+	0.68
+	0.71
+	0.68
+	2005
+	
+
+After 20 Epochs with a total training time of 9.18 seconds, the neural network achieved a test accuracy of 71%. The per-class results reveal the same fundamental weakness seen in Logistic Regression; the model is heavily biased toward the majority class which archives the highest F1 score yet again. Minority classes, like Dermatofibroma, sugar considerably, achieving an F1-score of merely 0.08. 
+        If we look at the training curves over the 20 Epochs, we can see that the training accuracy climbs to 0.78 while validation accuracy plateaus, suggesting mild overfitting, indicating that the model is beginning to memorize the training data rather than generalise. 
+
+
+[Step-by-step explanation]
+        Input Representation? Each DermaMNIST image starts as a (3, 28, 28) tensor. The 3 refers to the 3 colour channels of RGB, which are at 28x28 pixels. This is fed into the network and flattened into a single 1D vector of 3*28*28=2352 values using images.view(images.size(0), -1). The pixels have already been normalized during preprocessing via transforms.Normalize(), and as such no pixel dominates. 
+        Architecture Design? The network consists of two fully connected layers: fc1 and fc2. The former maps the 2352 input features to 128 hidden neurons, and the latter maps the 128 hidden neurons to 7 output scores (one per class). This gives a total of (2352*128+128)+(128*7+7) = 302,087 trainable parameters.
+Activation functions? I chose ReLU as my activation function which is applied to the first linear layer (fc1). It sets all negative values to zero and keeps the positive values unchanged, ensuring there is non-linearity in the model. The next step handles the final activation function, softmax, to fc2.
+Forward Pass? The forward pass is defined as: x (2352,) → fc1 → z1 (128,) → ReLU → a1 (128,) → fc2 → z2 (7,). The output that z2 contains, the 7 raw logit scores, each represents a class. 
+Loss function? I’ve used CrossEntropyLoss() to apply softmax internally to convert the 7 raw logits into probabilities, then compute how far those probabilities are from the true label. The loss computation is what drives the weight updates so that the incurred losses are minimized as much as possible.
+Backpropagation? After the loss is computed, loss.backward() computes the gradient for every trainable parameter in the network using the chain rule, propagating the error signal backwards from the output layer through to the input layer. 
+Training Process? Training runs for 20 epochs, with a batch size of 128. Each epoch has two phases: a training phase and a validation phase. The training phase updates the weights after loss is computed and backpropagated. The validation phase serves as an unbiased check on how well the model is generalising to data it has never been trained on. It allows for overfitting to be detected and gives valuable information on which hyper parameters we can tune later to increase final model performance. 
+Evaluation metrics? After training, the model is evaluated on the test set using two metrics from sklearn: accuracy_score and classification_report. Accuracy_score gives the overall proportion of correct predictions (71%)], while classification_report gives per-class precision, recall, and F1-score. Precision measures how often a positive prediction is correct, recall measures how many true positives were found, and F1 is the mean of the two. 
+Interpretation of results? The 20 epochs can be seen as follows: 
+Epoch [01/20]  Train Loss: 1.0192  Train Acc: 0.6596  Val Loss: 0.9476  Val Acc: 0.6730  Time: 0.57s
+Epoch [02/20]  Train Loss: 0.9294  Train Acc: 0.6738  Val Loss: 0.9197  Val Acc: 0.6849  Time: 0.45s
+Epoch [03/20]  Train Loss: 0.8915  Train Acc: 0.6860  Val Loss: 0.8964  Val Acc: 0.6800  Time: 0.44s
+Epoch [04/20]  Train Loss: 0.8678  Train Acc: 0.6895  Val Loss: 0.8593  Val Acc: 0.7019  Time: 0.46s
+Epoch [05/20]  Train Loss: 0.8443  Train Acc: 0.6977  Val Loss: 0.8412  Val Acc: 0.7029  Time: 0.45s
+Epoch [06/20]  Train Loss: 0.8184  Train Acc: 0.7069  Val Loss: 0.8369  Val Acc: 0.7079  Time: 0.45s
+Epoch [07/20]  Train Loss: 0.7929  Train Acc: 0.7149  Val Loss: 0.8056  Val Acc: 0.7119  Time: 0.47s
+Epoch [08/20]  Train Loss: 0.7706  Train Acc: 0.7214  Val Loss: 0.7945  Val Acc: 0.7129  Time: 0.44s
+Epoch [09/20]  Train Loss: 0.7510  Train Acc: 0.7263  Val Loss: 0.8110  Val Acc: 0.6989  Time: 0.45s
+Epoch [10/20]  Train Loss: 0.7416  Train Acc: 0.7316  Val Loss: 0.7857  Val Acc: 0.7109  Time: 0.43s
+Epoch [11/20]  Train Loss: 0.7170  Train Acc: 0.7390  Val Loss: 0.7862  Val Acc: 0.7298  Time: 0.45s
+Epoch [12/20]  Train Loss: 0.7068  Train Acc: 0.7435  Val Loss: 0.7929  Val Acc: 0.7218  Time: 0.43s
+Epoch [13/20]  Train Loss: 0.7005  Train Acc: 0.7480  Val Loss: 0.8125  Val Acc: 0.7099  Time: 0.45s
+Epoch [14/20]  Train Loss: 0.6847  Train Acc: 0.7544  Val Loss: 0.8119  Val Acc: 0.7059  Time: 0.44s
+Epoch [15/20]  Train Loss: 0.6677  Train Acc: 0.7567  Val Loss: 0.7901  Val Acc: 0.7168  Time: 0.44s
+Epoch [16/20]  Train Loss: 0.6548  Train Acc: 0.7630  Val Loss: 0.8040  Val Acc: 0.7248  Time: 0.45s
+Epoch [17/20]  Train Loss: 0.6424  Train Acc: 0.7687  Val Loss: 0.7947  Val Acc: 0.7318  Time: 0.44s
+Epoch [18/20]  Train Loss: 0.6376  Train Acc: 0.7674  Val Loss: 0.8097  Val Acc: 0.7119  Time: 0.46s
+Epoch [19/20]  Train Loss: 0.6210  Train Acc: 0.7762  Val Loss: 0.8038  Val Acc: 0.7248  Time: 0.45s
+Epoch [20/20]  Train Loss: 0.6146  Train Acc: 0.7801  Val Loss: 0.8201  Val Acc: 0.7168  Time: 0.44s
+        
+        We can see that over the 20 Epochs, the training loss does decrease from 1.02 to 0.61 and training accuracy climbs from 65.8% to 78.4%, confirming that backpropagation is successfully updating the weights. On the other hand, validation accuracy plateaus around 71-72%, demonstrating clear signs of mild overfitting.  
+[Comparison]
+        Which model performed better? Both the Logistic Regression model and the Neural Network model achieved a very close test accuracy (69% and 71% respectively). However, the differences are clearer on other metrics. For example, the macro F1 is more significant (0.36 to 0.41). This suggests that the Neural Network represents the minority classes more genuinely than the Logistic Regression model does, and therefore the Neural Network can be said to be the better model.  
+        Which generalized better? Neither model generalises particularly well, but the Neural Network shows slightly better generalisation than the Logistic Regression model. This is due to its non-linearity compared to the linearity of the Logistic regression, allowing the Neural Network to learn the complex and nonlinear boundaries between classes.
+        Why do neural networks perform better on images? As mentioned before, the Neural Network has a non-linearity principle which makes it better than the logistic regression model. Even with just having two layers, it is also far more expressive than Logistic Regression’s simple weighted sum. 
+        What are the risks in medical applications? The class imbalance is a serious concern. The models correctly identify only a few of the minority classes, while the majority classes are strongly predicted. Therefore, even if the model accuracy of 71% is misleading. Moreover, in medical applications, a prediction has an impact on the kind of diagnoses a patient receives. If the patient receives the wrong treatment, then it can have serious side effects from the treatment itself. This is also in addition with the fact that the actual problem the client is facing will not be treated properly, and that will also have adverse effects too. That is why, even if the model accuracy were actually 71%, this is unacceptable and data scientists should aim for greater accuracy (for example, over 90%). Lastly, neither model clearly explains why it made a prediction. This lack of interpretability is a key concern for clinicians because they want to understand the reasoning behind a diagnosis, not just receive a class label. 
+
+
+[Conclusion]
+This report explored two approaches for classifying skin lesion images from the DermaMNIST dataset: a Logistic Regression and a Neural Network. Both models achieved comparable overall test accuracies of 69% and 71% respectively. However, these figures are misleading given the severe class imbalance in the dataset, with melanocytic nevi accounting for approximately 67% of all samples. The neural network demonstrated a clear advantage in its ability to learn non-linear representations, reflected in its higher macro F1 score of 0.41 compared to 0.36 for Logistic Regression. That said, both models fall short of the standard required for a medical application. This is because its most limiting factor, the class imbalance of the dataset.

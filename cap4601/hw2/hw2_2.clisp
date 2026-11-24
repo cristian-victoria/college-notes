@@ -1,0 +1,20 @@
+#| Cristian Victoria 
+cjv22c |#
+
+#|
+Depth-limited depth-first search explores as far as possible each branch until the depth limit before backtracking
+|#
+
+(defun dldfs (tree limit)
+    (cond
+        ((null tree) nil) ; if the node is empty, return nil
+        ((minusp limit) nil) ; if depth limit is reached, stop
+        ((atom tree) (list tree)) ; if it is an atorm, return the list
+        (t (mapcan ; else, tree must be a list, concatenate each list into a single list
+            (lambda (subtree) ; anonymous function on every element of the list
+                (dldfs subtree (1- limit)) ; run dldfs on every element and decrement depth by 1
+            )
+            tree)
+        )
+    )
+)

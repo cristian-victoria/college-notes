@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.25in, right = 1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\setlength{\droptitle}{-5em}   
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\begin{document}
+
+
+\section{Secret Chili Exchange}
+
+Chef Jayaraman and Chef Myers are bitter rivals at the Tallahassee Culinary Institute, but they've agreed to share their secret chili recipes with only each other over the school's public message board (where everyone can see!). To keep Chef Mills from stealing their chili recipes, they decided to use a super secret number as a ``recipe lock''. \newline \newline
+They agree publicly on a magic number $g$ and a giant prime $p$. Chef Jayaraman picks a secret number $a$ and posts $A = g^a \bmod p$. Chef Myers picks a secret number $b$ and posts $B = g^b \bmod p$. Their shared ``recipe lock'' is $s = B^a \bmod p = A^b \bmod p$, a number only they can compute! \newline \newline
+Chef Mills needs YOU to find the shared secret $s$ so he can steal the chili recipe!
+
+\subsection{Input}
+
+The first line contains a single integer $T$, the number of test cases. Each of the next $T$ lines contains five integers: $p$, $g$, $q$, $A$, $B$.
+
+\begin{itemize}
+    \item $p$ — the prime modulus
+    \item $g$ — the generator
+    \item $q$ — the order of the group (i.e., $g^q \equiv 1 \pmod{p}$)
+    \item $A = g^a \bmod p$ — Chef Jayaraman's public key
+    \item $B = g^b \bmod p$ — Chef Myers's public key
+\end{itemize}
+
+\subsection{Output}
+
+For each test case, print a single integer $s$, the shared secret. If no valid secret exists (i.e., $a$ cannot be found), print \texttt{Bad Input}.
+
+\subsection{Constraints}
+
+$$1 \leq T \leq 100$$
+$$p \text{ is prime},\quad p \leq 10^{12}$$
+$$1 \leq g < p$$
+$$1 \leq q \leq 10^{12}$$
+$$1 \leq A, B < p$$
+
+\subsection{Sample Input/Output}
+
+\begin{center}
+    \begin{tabular}{ |l|l| }
+        \hline
+        Sample Input & Sample Output \\
+        \hline
+        3                & 18 \\
+        23 5 22 8 2      & 26 \\
+        31 3 30 6 26     & 1  \\
+        17 6 16 1 13     &    \\
+        \hline
+    \end{tabular}
+\end{center}
+\end{document}

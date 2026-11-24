@@ -1,0 +1,23 @@
+document_id,title,Word 1,Frequency 1,Word 2,Frequency 2,Word 3,Frequency 3,Word 4,Frequency 4,Word 5,Frequency 5
+0,Chicken,chickens,98,chicken,80,retrieved,58,archived,58,original,56
+1,Chicken_as_food,chicken,148,meat,37,food,32,retrieved,26,chickens,23
+2,Conservation_status,species,41,conservation,36,red,28,list,26,status,20
+3,Animal,animals,116,animal,83,isbn,77,retrieved,74,archived,70
+4,Chordate,chordates,49,doi,38,chordate,35,vertebrates,30,species,27
+5,Bird,birds,392,doi,218,bird,153,species,145,bibcode,114
+6,Galliformes,galliformes,46,birds,41,species,36,et,27,al,26
+7,Phasianidae,species,51,partridges,37,pheasants,30,grouse,27,world,17
+8,Junglefowl,gallus,36,junglefowl,23,genus,13,species,12,linnaeus,10
+9,Red_junglefowl,junglefowl,95,red,78,gallus,58,doi,22,species,21
+10,Trinomial_nomenclature,gorilla,19,name,18,bison,15,nomenclature,14,subspecies,12
+11,Carl_Linnaeus,linnaeus,287,pp,74,carl,70,university,59,blunt,54
+12,10th_edition_of_Systema_Naturae,linnaeus,28,systema,26,naturae,26,edition,24,animals,18
+13,Southeast_Asia,asia,294,southeast,255,retrieved,136,archived,122,original,109
+14,Domesticated_animals,pets,203,uncertain,174,date,153,meat,142,retrieved,100
+15,Egg_as_food,egg,240,eggs,234,retrieved,62,consumption,59,archived,58
+16,Pet,pets,117,pet,109,animals,63,dogs,54,retrieved,54
+17,Broiler,broiler,34,poultry,28,broilers,28,doi,24,stress,19
+18,Laying_hen,poultry,104,chickens,80,chicken,66,retrieved,61,hens,50
+19,Cultural_references_to_chickens,rooster,71,cock,36,archived,32,chickens,28,original,22
+20,Animal_husbandry,animal,74,may,58,animals,57,livestock,54,retrieved,46
+21,Capon,capons,23,capon,14,caponisation,9,also,8,history,7

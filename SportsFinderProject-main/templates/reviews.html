@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Reviews</title>
+</head>
+<body>
+    <h1>Submitted Reviews</h1>
+
+    {% if reviews %}
+        <ul>
+        {% for r in reviews %}
+            <li>
+                <strong>{{ r['user_name'] }}</strong> rated
+                <em>{{ r['location_name'] }}</em>
+                <strong>{{ r['stars'] }}/5</strong><br>
+                "{{ r['review_text'] }}"
+                {% if r['user_id'] == user_id %}
+                    <form method="post" action="{{ url_for('delete_review', review_id=r['review_id']) }}" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                {% endif %}
+            </li>
+            <br>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews submitted yet.</p>
+    {% endif %}
+
+    <br><a href="/">Back to Home</a>
+</body>
+</html>

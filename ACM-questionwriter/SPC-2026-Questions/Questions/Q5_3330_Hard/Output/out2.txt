@@ -1,0 +1,13 @@
+CRITICAL:
+11%: Sophia Hughes, Distance: 41m
+14%: Liam Carter, Distance: 38m
+16%: Ethan Parker, Distance: 19m
+24%: Isabella Cox, Distance: 36m
+
+NON-CRITICAL:
+31%: Noah Thompson, Distance: 27m
+48%: Emma Rodriguez, Distance: 12m
+58%: Mason Reed, Distance: 8m
+67%: Olivia Bennett, Distance: 21m
+90%: Ava Mitchell, Distance: 5m
+99%: James Ward, Distance: 2m

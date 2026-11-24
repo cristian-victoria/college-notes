@@ -1,0 +1,14 @@
+# Input Format
+number of mappings
+start end, start end (inclusive)
+--- Blank Line ---
+number of points x y ... (not mapped)
+
+# Output Format
+x y x y x y ... (unique points)
+
+# Other Notes
+Squares may be rotated in any arrangement
+NO HUGE TEST CASES because im not testing optimization
+all mappings are one to one
+there will be no overlapping mappings

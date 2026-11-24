@@ -1,0 +1,30 @@
+Name 	 Score 	 Grade
+
+Alice 	 85 	 B+
+Bob 	 72 	 C
+Diana 	 66 	 D
+Fiona 	 94 	 A-
+Hannah 	 81 	 B
+Julia 	 88 	 B+
+Laura 	 95 	 A
+Michael 	 62 	 D
+Nina 	 77 	 C
+Paula 	 91 	 A-
+Quentin 	 55 	 F
+Sam 	 79 	 C
+Tina 	 68 	 D
+Umar 	 74 	 C
+Victoria 	 92 	 A-
+William 	 60 	 D
+Xena 	 83 	 B
+Yusuf 	 70 	 C
+Zara 	 89 	 B+
+Aaron 	 76 	 C
+Carlos 	 64 	 D
+Denise 	 82 	 B
+Summary
+Students: 22
+Average: 77.41
+Highest: Laura(95)
+Lowest: Quentin(55)
+Grade distribution: A=1 A-=3 B+=3 B=3 C=6 D=5 F=1

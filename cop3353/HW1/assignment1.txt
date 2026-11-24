@@ -1,0 +1,156 @@
+COP3353 - Spring 2023
+Assignment 1
+Due: Mon, Feb 6
+
+Section: 15
+Name: Cristian Victoria
+
+Question 1 (10 points):
+-------------------------------------------------------------
+a.
+	- sh: Bourne shell
+	- csh: C shell
+	- ksh: Korn shell
+	- bash: Bourne-again shell
+	- tcsh: T shell
+
+b.
+	nano first-file
+
+c.
+	1. Ctrl + A
+	2. Ctrl + E
+	3. Ctrl + Y
+	4. Ctrl + K
+	5. Ctrl + X
+
+d.
+	- vi
+	- emacs
+
+
+Question 2 (10 points):
+-------------------------------------------------------------
+
+victoria@linprog6.cs.fsu.edu:~>pwd
+/home/class/victoria
+victoria@linprog6.cs.fsu.edu:~>mkdir COP3353-temp
+victoria@linprog6.cs.fsu.edu:~>cd COP3353-temp
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>mkdir assign1
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>mkdir assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>ll 
+total 8
+drwx------ 2 victoria CS-Class 4096 Feb  5 15:31 assign1
+drwx------ 2 victoria CS-Class 4096 Feb  5 15:31 assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>rmdir assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>ll
+total 4
+drwx------ 2 victoria CS-Class 4096 Feb  5 15:31 assign1
+
+
+Question 3 (10 points):
+-------------------------------------------------------------
+
+victoria@linprog6.cs.fsu.edu:~>cd COP3353-temp
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>mkdir assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico MyFile.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cat MyFile.txt
+My favorite movie is the 'Silence of the lambs'
+My favorite food is Mofongo relleno de churrasco
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cp MyFile.txt assign1/t_1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cd assign1
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>cp t_1.txt t_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>ls -l
+total 8
+-rw------- 1 victoria CS-Class 97 Feb  5 15:46 t_1.txt
+-rw------- 1 victoria CS-Class 97 Feb  5 15:47 t_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>cp t_1.txt /home/class/victoria/COP3353-temp/assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>cd ..
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cd assign2
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign2>ls -l
+total 4
+-rw------- 1 victoria CS-Class 97 Feb  5 15:50 t_1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign2>cd ..
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cd assign1
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>rm t_1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign1>ls -l
+total 4
+-rw------- 1 victoria CS-Class 97 Feb  5 15:47 t_2.txt
+
+
+Question 4 (10 points):
+-------------------------------------------------------------
+victoria@linprog6.cs.fsu.edu:~>cd COP3353-temp
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>mkdir assign3
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_1-1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_2-1.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_1-2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_2-2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_1-1.bak
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico Test_2-2.bak
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>pico File_1.bat
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>ls -l
+total 16
+drwx------ 2 victoria CS-Class 4096 Feb  5 15:54 assign1
+drwx------ 2 victoria CS-Class 4096 Feb  5 15:50 assign2
+drwx------ 2 victoria CS-Class 4096 Feb  5 16:01 assign3
+-rw------- 1 victoria CS-Class    0 Feb  5 16:03 File_1.bat
+-rw------- 1 victoria CS-Class   97 Feb  5 15:37 MyFile.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:02 Test_1-1.bak
+-rw------- 1 victoria CS-Class    0 Feb  5 16:01 Test_1-1.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:02 Test_1-2.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:01 Test_1.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:01 Test_2-1.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:02 Test_2-2.bak
+-rw------- 1 victoria CS-Class    0 Feb  5 16:02 Test_2-2.txt
+-rw------- 1 victoria CS-Class    0 Feb  5 16:01 Test_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>ls -l *txt
+-rw------- 1 victoria CS-Class 97 Feb  5 15:37 MyFile.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_1-1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:02 Test_1-2.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_2-1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:02 Test_2-2.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>ls -l *t
+-rw------- 1 victoria CS-Class  0 Feb  5 16:03 File_1.bat
+-rw------- 1 victoria CS-Class 97 Feb  5 15:37 MyFile.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_1-1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:02 Test_1-2.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_2-1.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:02 Test_2-2.txt
+-rw------- 1 victoria CS-Class  0 Feb  5 16:01 Test_2.txt
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cp *t_1* /home/class/victoria/COP3353-temp/assign3
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp>cd assign3
+victoria@linprog6.cs.fsu.edu:~/COP3353-temp/assign3>ls -l
+total 0
+-rw------- 1 victoria CS-Class 0 Feb  5 16:13 Test_1-1.bak
+-rw------- 1 victoria CS-Class 0 Feb  5 16:13 Test_1-1.txt
+-rw------- 1 victoria CS-Class 0 Feb  5 16:13 Test_1-2.txt
+-rw------- 1 victoria CS-Class 0 Feb  5 16:13 Test_1.txt
+
+Question 5 (10 points):
+-------------------------------------------------------------
+victoria@shell.cs.fsu.edu:~>wc COP3353-temp
+wc: COP3353-temp: Is a directory
+      0       0       0 COP3353-temp
+victoria@shell.cs.fsu.edu:~>du COP3353-temp
+4       COP3353-temp/assign3
+8       COP3353-temp/assign1
+8       COP3353-temp/assign2
+28      COP3353-temp
+victoria@shell.cs.fsu.edu:~>cd COP3353-temp
+victoria@shell.cs.fsu.edu:~/COP3353-temp>wc -l MyFile.txt
+2 MyFile.txt
+victoria@shell.cs.fsu.edu:~/COP3353-temp>wc -c MyFile.txt
+97 MyFile.txt
+victoria@shell.cs.fsu.edu:~/COP3353-temp>wc -L MyFile.txt
+48 MyFile.txt
+victoria@shell.cs.fsu.edu:~>date
+Sun Feb  5 17:15:22 EST 2023
+victoria@shell.cs.fsu.edu:~>date +"%d/%m/%y"
+05/02/23
+

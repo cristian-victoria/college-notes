@@ -1,0 +1,20 @@
+#| Cristian Victoria 
+cjv22c |#
+
+(defparameter fib_array (list 0 1)) ; fib_array = (0 1)
+(defun sums (N)
+    (cond 
+        ((null N) 0) ; if null, return 0 
+        ((< N 0) 0) ; if negative, return 0
+        ((< N (length fib_array)) 0) ; if it is already in array, return 0
+        (t (+ 1 ; count this addition
+                (sums (- N 1)) ; add additions from fib(N-1)
+                (sums (- N 2)) ; add additions from fib(N-2)
+        ))
+    )
+)
+
+|#
+Answer to question: computing fib(n) requires computing fib(n-1) and fib(n-2), and each of those require their own additions. 
+sums almost mirrors fib(N) except that it has one more for it accounts for the addition being performed at the current level.
+#|

@@ -1,0 +1,8 @@
+CRITICAL:
+9%: Cameron Stiles, Distance: 44m
+30%: Laney Jackson, Distance: 15m
+30%: Sebastian Mays, Distance: 32m
+
+NON-CRITICAL:
+85%: Toni Terrier, Distance: 10m
+92%: Mike Geller, Distance: 3m

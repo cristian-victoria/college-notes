@@ -1,0 +1,22 @@
+#| Cristian Victoria 
+cjv22c |#
+
+(defun bfs (tree)
+    (cond
+        ((null tree) nil) ; if the node is empty, return nil
+        ((atom tree) (list tree)) ; if the node is an atom, return it as a list
+
+        (t (do ((queue tree ; else, make a queue equal to the tree
+                (append (cdr queue) ; gets the rest of the list
+                    (if (listp (car queue)) ; if the current node is a list...
+                        (car queue) ; return its contents
+                    nil) ; else, return nil
+                )
+            )(result nil ; create loop variable named result with value nil
+                (if (atom (car queue)) ; if the node is an atom...
+                    (append result (list (car queue))) ; wrap the node into a list and append to existing result
+                result) ; else, keep result unchanged
+            )
+        )((null queue) result))) ; stop loop when queue becomes nil
+    )
+)

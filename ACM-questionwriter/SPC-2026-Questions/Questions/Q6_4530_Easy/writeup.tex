@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.25in, right = 1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\setlength{\droptitle}{-5em}   
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\begin{document}
+% =-=-= Cover Page Start =-=-=
+\input{Upper Division/Front Page}
+% =-=-= Cover Page End =-=-=
+
+% =-=-= Question Start =-=-=
+\section{Freshman tower competition}
+
+It's move-in day at FSU, and two freshman roommates, Kyle and Dylan, are locked in a fierce, 
+completely unnecessary competition to see who can build the tallest tower out of their moving 
+boxes before one of their parents tells them to stop. \newline \newline
+
+Kyle piles his boxes into tower K, and Dylan piles his into tower D. Neither of them is being 
+particularly strategic about it; they keep piling boxes on and then changing their minds and 
+pulling them back off, all while arguing about whose side of the room is bigger. \newline \newline
+
+You, the exhausted RA, are watching this unfold from the doorway with a clipboard. Your job is 
+to log every PLACE and REMOVE command, and at the end of the chaos report the tallest each tower 
+ever got and the longest streak each freshman achieved during the madness. These are needed for 
+the inevitable argument at the end about who was winning.   \newline
+
+\subsection{Input}
+
+The first line contains an integer N, the number of commands.
+The next N lines each contain one of two commands:
+\begin{itemize}
+    \item $PLACE$ $t$ $x$ - push a block of height x onto tower t (where t is K or D)
+    \item $REMOVE$ $t$ - pop the top block off tower t (guaranteed non-empty when called)
+\end{itemize}
+
+\subsection{Output}
+
+Print 4 lines:
+
+\begin{itemize}
+    \item Max height ever reached by tower K alone
+    \item Max height ever reached by tower D alone
+    \item Longest Streak held by Kyle alone
+    \item Longest Streak held by Dylan alone
+\end{itemize}
+
+\subsection{Sample Input/Output}
+
+\begin{center}
+    \begin{tabular}{ |l|l| }
+        \hline
+        Sample Input & Sample Output \\
+        \hline
+        6 & Max Height K: 7\\
+        PLACE K 5 & Max Height D: 8\\
+        PLACE D 3 & Longest Streak K: 2\\
+        PLACE K 2 & Longest Streak D: 1\\
+        REMOVE D &\\
+        PLACE D 8 &\\
+        REMOVEK&\\
+        \hline
+        5 & Max Height K: 13\\
+        PLACEK4 & Max Height D: 0\\
+        PLACE K 6 & Longest Streak K: 3\\
+        PLACE K 2 & Longest Streak D: 0\\
+        REMOVE K &\\
+        PLACE K 3 &\\
+        \hline
+        8 & Max Height K: 10\\
+        PLACE K 6 & Max Height D: 9\\
+        PLACE D 9 & Longest Streak K: 2\\
+        PLACE K 4 & Longest Streak D: 1\\
+        REMOVE D &\\
+        REMOVE K &\\
+        REMOVE K &\\
+        PLACE D 3 &\\
+        REMOVE D &\\
+        \hline
+    \end{tabular}
+\end{center}
+% =-=-= Question End =-=-=
+
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.25in, right = 1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\setlength{\droptitle}{-5em}   
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\begin{document}
+% =-=-= Cover Page Start =-=-=
+\input{Upper Division/Front Page}
+% =-=-= Cover Page End =-=-=
+
+% =-=-= Question 2 Start =-=-=
+\section{Grandma's 100th Birthday}
+
+Your grandma made it to 100 years old! To celebrate this amazing accomplishment,
+your dad went to the farmers market to buy grandma a bunch of cakes for her party.
+He picked up N long rectangular cakes, each with varying lengths. \newline \newline
+
+Every person at the party, to be fair, will receive exactly one slice, and all
+cake sizes need to be exactly the same length. You are tasked to create all the 
+fair slices. You are not allowed to combine any pieces of different cakes 
+together. Any leftover cake is thrown away. \newline \newline
+
+There is one major problem though. Your dad doesn't have a knife, so he went and
+bought one at the gas station and its plastic and cheap. This knife is fragile 
+and will snap after exactly M cuts. \newline \newline
+
+If it is impossible to give everyone one equal slice, return 0 \newline \newline
+
+\subsection{Input}
+
+The input consists of two separate lines of data, and the second being the cake sizes:
+\begin{itemize}
+    \item An integer $N$, the number of cakes
+    \item An integer $K$, the number of people coming to the party
+    \item An integer $M$, the maximum amount of cuts the knife can make
+    \item The second line has $N$ space separated integers c1, c2, c3, ... , cn 
+\end{itemize}
+
+\subsection{Output}
+
+Print a single integer of the maximum size of the slice which allows every
+family member to have one equal slice, Return 0 if its impossible.
+
+\subsection{Sample Input/Output}
+
+\begin{center}
+    \begin{tabular}{ |l|l| }
+        \hline
+        Sample Input & Sample Output \\
+        \hline
+        3 6 4 & 5\\
+        10 15 20 &\\
+        \hline
+        3 5 4 & 5\\
+        8 13 20 &\\
+        \hline
+        1 10 5 & 0\\
+        100 &\\
+        \hline
+    \end{tabular}
+\end{center}
+% =-=-= Question 2 End =-=-=
+
+\end{document}

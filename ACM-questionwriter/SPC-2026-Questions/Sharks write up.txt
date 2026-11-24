@@ -1,0 +1,48 @@
+Shark Test Cases 
+
+- test 1 
+1. pink: 0 60 120 180 240 
+2. blue: 10 70 130 190 250
+3. purple: 20 80 140 200 260
+
+Output: 
+
+
+- test 2 
+1. pink: 0 60 120 180 240
+2. blue: 0 60 120 180 240
+3. purple: 0 60 120 180 240
+
+Output:
+
+
+- test 3 
+1. pink: 0 60 120 180 240
+2. blue: 10 70 130 190 250
+3. purple: 20 80 140 200 260
+
+Output: 
+
+
+Shark Write up 
+
+SHARKS!!
+- You're trying to enjoy a lovely day at Neptune Beach, but so are the sharks (oh no) 
+- Luckily they only come out in certain intervals during the day 
+- But you want to get the most out of your beach day so its your job to figure out the max amount of time you can spend in the water without losing a limb 
+- Three types of sharks appear on the beach pink, blue, and the rare purple shark. 
+- One pink sharks appears every half hour, staying for 5 (10) minutes while one blue shark appears every other hour, staying for 15 minutes. There is also a purple shark will appear for 3 minutes, if both the pink and purple shark have been gone for at least 5 minutes  
+- If you and your friends are at the beach for 6 hours from 12:00pm-6:00pm, what is the max amount of time you all can swim, keeping in mind it takes 5 minutes to swim out to the sandbar and 5 minutes to make it back to shore safely?
+
+- Things to Determine 
+	- If the swim times are valid 
+	- The longest continuous safe time block
+	- The total number of safe minutes
+	- The maximum swim time, accounting for: 5 minutes to swim out and in 
+	- The hours where all three sharks overlap
+
+
+
+Shark Logic 
+
+

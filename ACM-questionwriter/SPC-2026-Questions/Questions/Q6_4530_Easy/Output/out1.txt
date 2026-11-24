@@ -1,0 +1,4 @@
+Max Height K: 7
+Max Height D: 8
+Longest Streak K: 2
+Longest Streak D: 1

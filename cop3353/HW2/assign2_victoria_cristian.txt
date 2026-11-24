@@ -1,0 +1,63 @@
+COP3353 - Spring 2023
+Assignment 2 Solution
+Due: Tuesday, Feb 28, 2023 
+
+Section: 15
+Name: Cristian Victoria
+
+Question 1 (10 points):
+-------------------------------------------------------------
+a.      4dd
+b.      /cat or /Cat
+c.      4x
+d.      i
+e.      u
+
+Question 2 (10 points):
+-------------------------------------------------------------
+a.	:wq! - Saves and exits the file 
+b.	:%s/cat/Cat/g - Replaces every instance of "cat" to "Cat"
+c.	2fa - Two factor authentication
+d.	yy - Copies the current line
+e.	gg - Moves the cursor to the first line
+
+
+Question 3 (10 points):
+-------------------------------------------------------------
+a.	^r
+b.	^w
+c.	^e
+d.	^x ] 
+e.	^x ^s
+
+Question 4 (10 points):
+-------------------------------------------------------------
+a.	^x u - Undo
+b.	^b - Go back one character
+c.	^y -  Inserts the most recent kill
+d.	^x ^c - Saves changes as new file and exits
+e.	^s - Search forward
+
+Question 5 (10 points):
+-------------------------------------------------------------
+a.	
+	chmod 543 thing.txt
+	chmod u=5,g=4,o=3 thing.txt
+b.	
+	chmod 062 thing.txt
+	chmod u=0,g=6,o=3 thing.txt
+c.
+	Default permissions of a newly created text file:
+		User has 6 permission (Read and Write)
+		Group has 0 permission
+		Other has 0 permission
+
+d.
+	Default permissions of a newly created directory:
+		User has 7 permission (Read, Write and Execute)
+		Group has 0 permission
+		Other has 0 permission
+	
+	The reason why directories have execute permission is because it allows you to enter
+	the directory and access any of its files. If a directory is not an executable,
+	cd <directoryName> will not produce the desired result of navigating inside the directory.
